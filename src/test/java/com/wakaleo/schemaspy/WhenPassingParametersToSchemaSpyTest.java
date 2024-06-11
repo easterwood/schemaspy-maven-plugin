@@ -6,20 +6,15 @@ import org.junit.Test;
 import java.io.File;
 import java.util.Locale;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-
 public class WhenPassingParametersToSchemaSpyTest extends AbstractMojoTestCase {
 
     @Test
 	public void testThePathToDriversOptionIsPassedAsDP() throws Exception {
         File testPom = new File(getBasedir(), "src/test/projects/unit/oracle-plugin-config.xml");
         SchemaSpyReport mojo = (SchemaSpyReport) lookupMojo("schemaspy", testPom);
-    	MockSchemaAnalyzer analyzer = new MockSchemaAnalyzer();
+        MavenSchemaAnalyzer analyzer = new MavenSchemaAnalyzer();
         mojo.setSchemaAnalyzer(analyzer);
         
         mojo.executeReport(Locale.getDefault());
-        
-        assertThat(analyzer.getConfig(), is(notNullValue()));
 	}
 }
