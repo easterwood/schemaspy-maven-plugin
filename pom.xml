@@ -85,7 +85,7 @@
         </site>
     </distributionManagement>
     <properties>
-        <java.version>8</java.version>
+        <java.version>11</java.version>
         <project.build.sourceVersion>${java.version}</project.build.sourceVersion>
         <project.build.targetVersion>${java.version}</project.build.targetVersion>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -187,6 +187,11 @@
             <artifactId>maven-compat</artifactId>
             <version>${maven-libs.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.schemaspy</groupId>
+            <artifactId>schemaspy</artifactId>
+            <version>6.2.4</version>
         </dependency>
         <!-- Database dependencies -->
         <dependency>
