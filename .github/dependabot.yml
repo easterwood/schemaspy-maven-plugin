@@ -6,7 +6,7 @@ updates:
     interval: weekly
     time: "04:00"
     day: "saturday"
-    timezone: "Europe/Amsterdam"
+    timezone: "Europe/Berlin"
   open-pull-requests-limit: 10
   assignees:
   - mprins
@@ -20,6 +20,6 @@ updates:
     interval: "weekly"
     day: "saturday"
     time: "21:00"
-    timezone: "Europe/Amsterdam"
+    timezone: "Europe/Berlin"
   labels:
     - build-infra

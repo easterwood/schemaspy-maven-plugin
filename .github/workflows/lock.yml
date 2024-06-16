@@ -11,7 +11,7 @@ concurrency:
 jobs:
   action:
     name: 'Repository Maintenance'
-    uses: mprins/.github/.github/workflows/maintenance.yml@main
+    uses: easterwood/.github/.github/workflows/maintenance.yml@main
     with:
         issue-inactive-days: '63'
         pr-inactive-days: '22'
