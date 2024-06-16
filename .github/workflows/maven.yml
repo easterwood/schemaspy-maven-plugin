@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:        
-        java: [ 8, 11 ]
+        java: [ 11, 17, 21 ]
         java_dist: ["temurin"]
         maven: [ "3.6.3", "3.8.8", "3.9.7" ]
         include:
@@ -92,7 +92,7 @@ jobs:
 
 
   docs:
-    name: Check Javadoc for Java 8
+    name: Check Javadoc for Java 11
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -100,7 +100,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 8
+          java-version: 11
           distribution: 'zulu'
           cache: maven
 
