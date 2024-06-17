@@ -305,6 +305,12 @@ public class SchemaSpyReport extends AbstractMavenReport {
     @Parameter(property = "noLogo", defaultValue = "true")
     private Boolean noLogo;
 
+    @Parameter(property = "catalog", defaultValue = "%")
+    private String catalog;
+
+    @Parameter(property = "vizjs", defaultValue = "true")
+    protected boolean vizjs = false;
+
     /**
      * Whether to create the report only on the execution root of a multi-module project.
      *
@@ -438,6 +444,8 @@ public class SchemaSpyReport extends AbstractMavenReport {
         addFlagToArguments(argList, "-cid", commentsInitiallyDisplayed);
         addFlagToArguments(argList, "-noads", noAds);
         addFlagToArguments(argList, "-nologo", noLogo);
+        addToArguments(argList, "-cat", catalog);
+        addFlagToArguments(argList, "-vizjs", vizjs);
 //        addToArguments(argList, "-jdbcUrl", jdbcUrl);
 
         try {
