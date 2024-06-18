@@ -56,7 +56,7 @@ jobs:
         run: sudo apt install -y --no-install-recommends graphviz
 
       - name: Build with Maven
-        run: mvn install -Dmaven.test.skip=true -B -V -fae -q
+        run: mvn install -Dmaven.test.skip=true -B -V -fae -q -Djava.awt.headless=true
 
       - name: Setup databases
         run: |
@@ -71,8 +71,8 @@ jobs:
 
       - name: Test
         run: |
-          mvn -e -B -fae -Pmaven-ci clean test -Dorg.slf4j.simpleLogger.showDateTime=true -Dorg.slf4j.simpleLogger.dateTimeFormat=HH:mm:ss,SSS -Dfailsafe.useFile=false
-          mvn -e -B -fae -Pmaven-ci jacoco:report coveralls:report -q -Dlicense.skip=true -DrepoToken=$GITHUB_TOKEN -DserviceName=github
+          mvn -e -B -fae -Pmaven-ci clean test -Dorg.slf4j.simpleLogger.showDateTime=true -Dorg.slf4j.simpleLogger.dateTimeFormat=HH:mm:ss,SSS -Dfailsafe.useFile=false -Djava.awt.headless=true
+          mvn -e -B -fae -Pmaven-ci jacoco:report coveralls:report -q -Dlicense.skip=true -DrepoToken=$GITHUB_TOKEN -DserviceName=github -Djava.awt.headless=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      # https://github.com/marketplace/actions/coveralls-github-action
